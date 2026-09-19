@@ -1,1 +1,11 @@
-﻿[]
+[
+    {
+        "timestamp": "2026-09-19T05:18:19.923018",
+        "event_type": "WAVEFORM_GENERATED",
+        "details": {
+            "frequency": 440.0,
+            "duration": 1.0,
+            "sample_count": 44100
+        }
+    }
+]
