@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AROHA Master Control Panel</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #d4af37;
+            font-family: monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .console-box {
+            border: 1px solid #d4af37;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            background: #111;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+        }
+        h1 { font-size: 2rem; letter-spacing: 0.1rem; text-align: center; margin-bottom: 20px; }
+        .btn {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 1rem;
+            margin-top: 15px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #d4af37; color: #000; }
+        .telemetry {
+            background: #1a1a1a;
+            padding: 15px;
+            color: #00ff00;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            border-left: 3px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="console-box">
+        <h1>AROHA MASTER CONTROL</h1>
+        <p style="text-align: center; color: #888;">Thermal Fulcrum: 36.6°C | Zero-Filter Active</p>
+        
+        <div class="telemetry" id="telemetryDisplay">
+            System Status: Standby. Awaiting user ignition command...
+        </div>
+
+        <button class="btn" onclick="triggerResonance()">Ignite Frequency Resonance (432Hz)</button>
+        <button class="btn" onclick="logUserAction()">Record Sovereign Intent</button>
+    </div>
+
+    <script>
+        function triggerResonance() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(432, audioCtx.currentTime); // 432 Hz Harmony
+                
+                gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.0);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 2.0);
+                
+                document.getElementById('telemetryDisplay').innerText = "✓ Resonance Executed: 432 Hz tone synthesized successfully.";
+            } catch (e) {
+                document.getElementById('telemetryDisplay').innerText = "✗ Audio Context requires browser interaction first.";
+            }
+        }
+
+        function logUserAction() {
+            const timestamp = new Date().toLocaleTimeString();
+            document.getElementById('telemetryDisplay').innerText = `✓ Sovereign Intent Logged at [${timestamp}]. State synchronized.`;
+        }
+    </script>
+</body>
+</html>

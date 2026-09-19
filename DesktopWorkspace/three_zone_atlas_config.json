@@ -1,0 +1,18 @@
+{
+  "atlas_name": "AROHA 3-Zone Atlas",
+  "version": "1.0.0",
+  "zones": {
+    "zone_alpha": {
+      "focus": "Spatial Data & Mapping",
+      "coordinate_system": "Cartesian-Duodecimal"
+    },
+    "zone_beta": {
+      "focus": "Historical & Epistemic Layers",
+      "coordinate_system": "Temporal Matrix"
+    },
+    "zone_gamma": {
+      "focus": "Acoustic Frequencies & Resonance",
+      "coordinate_system": "Harmonic Spectrum"
+    }
+  }
+}

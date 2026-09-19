@@ -1,0 +1,11 @@
+{
+  "system": "AROHA Duodecimal Wheel",
+  "base": 12,
+  "nodes": [
+    {"id": 1, "zone": "Zone-Alpha", "vector": "Spatial Origin"},
+    {"id": 3, "zone": "Zone-Alpha", "vector": "Geometric Vertex"},
+    {"id": 6, "zone": "Zone-Beta", "vector": "Temporal Pivot"},
+    {"id": 9, "zone": "Zone-Gamma", "vector": "Harmonic Node"},
+    {"id": 12, "zone": "Zone-Gamma", "vector": "Closure & Reset"}
+  ]
+}
