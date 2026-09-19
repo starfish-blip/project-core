@@ -24,5 +24,93 @@
             "port": "COM3",
             "transmitted_samples": 44100
         }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.729078",
+        "event_type": "WAVEFORM_GENERATED",
+        "details": {
+            "type": "sine",
+            "frequency": 110.0,
+            "sample_count": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.731351",
+        "event_type": "WAVEFORM_TRANSMITTED",
+        "details": {
+            "type": "sine",
+            "frequency": 110.0,
+            "transmitted_samples": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.745813",
+        "event_type": "WAVEFORM_GENERATED",
+        "details": {
+            "type": "sine",
+            "frequency": 220.0,
+            "sample_count": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.747772",
+        "event_type": "WAVEFORM_TRANSMITTED",
+        "details": {
+            "type": "sine",
+            "frequency": 220.0,
+            "transmitted_samples": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.762535",
+        "event_type": "WAVEFORM_GENERATED",
+        "details": {
+            "type": "sine",
+            "frequency": 440.0,
+            "sample_count": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.764689",
+        "event_type": "WAVEFORM_TRANSMITTED",
+        "details": {
+            "type": "sine",
+            "frequency": 440.0,
+            "transmitted_samples": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.781147",
+        "event_type": "WAVEFORM_GENERATED",
+        "details": {
+            "type": "sine",
+            "frequency": 880.0,
+            "sample_count": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.783268",
+        "event_type": "WAVEFORM_TRANSMITTED",
+        "details": {
+            "type": "sine",
+            "frequency": 880.0,
+            "transmitted_samples": 22050
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.815982",
+        "event_type": "SWEEP_GENERATED",
+        "details": {
+            "start": 200.0,
+            "end": 2000.0,
+            "sample_count": 44100
+        }
+    },
+    {
+        "timestamp": "2026-09-19T05:22:04.818259",
+        "event_type": "SWEEP_TRANSMITTED",
+        "details": {
+            "transmitted_samples": 44100
+        }
     }
 ]
