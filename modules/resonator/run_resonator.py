@@ -1,27 +1,13 @@
-﻿from modules.resonator.core import ResonatorCore
-from modules.resonator.logger import ResonatorLogger
-from modules.resonator.waveform import WaveformController
-from modules.resonator.hardware_interface import SignalGeneratorInterface
+﻿import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-def execute_resonator_cycle():
-    print("=== COSMIC RESONATOR MASTER CYCLE ===")
-    
-    # 1. Initialize Core & Parameters
-    core = ResonatorCore(base_freq=272.0)
-    logger = ResonatorLogger()
-    waveform = WaveformController(base_freq=core.base_freq)
-    hardware = SignalGeneratorInterface(port="COM3")
+from modules.resonator.waveform import generate_sine_wave
+from modules.resonator.logger import log_event
 
-    # 2. Configure Waveform & Target Frequency
-    target_freq = core.calculate_harmonic(1.0)
-    waveform.configure_output("sine", target_freq)
-
-    # 3. Send Hardware Signal & Log Telemetry
-    hardware.connect()
-    hardware.send_frequency_command(target_freq, "sine")
-    
-    logger.record_frequency(core.base_freq, 1.0, "Master cycle execution nominal")
-    print("=====================================")
-
-if __name__ == "__main__":
-    execute_resonator_cycle()
+if __name__ == '__main__':
+    freq = 440.0
+    duration = 1.0
+    samples = generate_sine_wave(freq, duration_sec=duration)
+    log_event('WAVEFORM_GENERATED', {'frequency': freq, 'duration': duration, 'sample_count': len(samples)})
+    print(f'Successfully generated {len(samples)} samples for {freq}Hz and logged telemetry.')
